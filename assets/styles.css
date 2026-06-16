@@ -3050,3 +3050,12 @@ body[data-page='test'] #testHost {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.clickable-card {
+  cursor: pointer;
+}
+
+.clickable-card:focus-visible {
+  outline: 3px solid rgba(37, 91, 218, 0.35);
+  outline-offset: 2px;
+}

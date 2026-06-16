@@ -316,11 +316,29 @@
     });
   }
 
+  function attachNavCards(scope = document) {
+    scope.querySelectorAll('[data-href]').forEach((card) => {
+      card.setAttribute('role', 'link');
+      if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+      const open = () => { location.href = card.dataset.href; };
+      card.addEventListener('click', (event) => {
+        if (event.target.closest('a, button, input, select, textarea, label')) return;
+        open();
+      });
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          open();
+        }
+      });
+    });
+  }
+
   function homeExamCard(examId) {
     const exam = getExamMeta(examId);
     if (!exam) return '';
     return `
-      <article class="home-exam-card">
+      <article class="home-exam-card clickable-card" data-href="${examHubUrl(examId)}">
         <div class="home-exam-icon">${escapeHtml(exam.icon || '📚')}</div>
         <h3>${escapeHtml(exam.title)}</h3>
         <p>${escapeHtml(exam.subtitle)}</p>
@@ -332,7 +350,7 @@
 
   function departmentCard(dept) {
     return `
-      <article class="home-exam-card department-card-large">
+      <article class="home-exam-card department-card-large clickable-card" data-href="${departmentUrl(dept.id)}">
         <div class="home-exam-icon">${escapeHtml(dept.icon || '📚')}</div>
         <h3>${escapeHtml(dept.title)}</h3>
         <p>${escapeHtml(dept.subtitle)}</p>
@@ -373,6 +391,7 @@
     if (exploreHost) {
       const featured = ['cgl', 'chsl', 'cpo', 'steno', 'mts', 'up-exams'];
       exploreHost.innerHTML = featured.map(homeExamCard).join('');
+      attachNavCards(exploreHost);
     }
 
     if (seriesHost) {
@@ -392,6 +411,7 @@
     const host = document.getElementById('examsGrid');
     if (!host) return;
     host.innerHTML = (data.departments || []).map(departmentCard).join('');
+    attachNavCards(host);
   }
 
   function renderDepartmentPage() {
@@ -414,7 +434,7 @@
       const exam = getExamMeta(examId);
       if (!exam) return '';
       return `
-        <article class="home-exam-card department-exam-card">
+        <article class="home-exam-card department-exam-card clickable-card" data-href="${examHubUrl(examId)}">
           <div class="home-exam-icon">${escapeHtml(exam.icon || '📚')}</div>
           <h3>${escapeHtml(exam.title)}</h3>
           <p>${escapeHtml(exam.subtitle)}</p>
@@ -423,6 +443,7 @@
         </article>
       `;
     }).join('');
+    attachNavCards(grid);
   }
 
   function renderExamList(exam) {
