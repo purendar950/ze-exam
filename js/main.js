@@ -185,29 +185,50 @@
       if (key === 'exams' && isExamSection) return 'active';
       return page === key ? 'active' : '';
     };
-    host.innerHTML = `
-      <div class="app-topbar-shell">
-        <div class="container app-topbar">
-          <a class="app-brand" href="${routes.home}">
-            <img src="${relativeUrl('assets/logo.svg')}" alt="ExamZen logo">
-            <div>
-              <strong>ExamZen</strong>
-              <small>SSC · UP Exams</small>
+
+    if (page === 'home') {
+      host.innerHTML = `
+        <div class="home-topbar-shell">
+          <div class="container home-topbar">
+            <a class="home-brand" href="${routes.home}">
+              <img src="${relativeUrl('assets/logo.svg')}" alt="ExamZen logo">
+              <div>
+                <strong>ExamZen</strong>
+                <small>SSC · UP EXAMS</small>
+              </div>
+            </a>
+            <div class="home-topbar-actions">
+              ${me ? `<a class="home-login-btn user" href="${routes.profile}">${escapeHtml(me.name.split(' ')[0])}</a><button class="btn ghost sm" id="logoutBtn" type="button">Logout</button>` : `<a class="home-login-btn" href="${routes.login}">LOGIN</a>`}
             </div>
-          </a>
-          <nav class="app-mini-nav">
-            <a class="${active('home')}" href="${routes.home}">Home</a>
-            <a class="${active('exams')}" href="${routes.exams}">Exams</a>
-            <a class="${active('series')}" href="${routes.series}">Series</a>
-            <a class="${active('live')}" href="${routes.live}">Live</a>
-          </nav>
-          <div class="app-topbar-actions">
-            <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme">🌙</button>
-            ${me ? `<a class="app-login-btn user" href="${routes.profile}">${escapeHtml(me.name.split(' ')[0])}</a><button class="btn ghost sm" id="logoutBtn" type="button">Logout</button>` : `<a class="app-login-btn" href="${routes.login}">LOGIN</a>`}
           </div>
         </div>
-      </div>
-    `;
+      `;
+    } else {
+      host.innerHTML = `
+        <div class="app-topbar-shell">
+          <div class="container app-topbar">
+            <a class="app-brand" href="${routes.home}">
+              <img src="${relativeUrl('assets/logo.svg')}" alt="ExamZen logo">
+              <div>
+                <strong>ExamZen</strong>
+                <small>SSC · UP Exams</small>
+              </div>
+            </a>
+            <nav class="app-mini-nav">
+              <a class="${active('home')}" href="${routes.home}">Home</a>
+              <a class="${active('exams')}" href="${routes.exams}">Exams</a>
+              <a class="${active('series')}" href="${routes.series}">Series</a>
+              <a class="${active('live')}" href="${routes.live}">Live</a>
+            </nav>
+            <div class="app-topbar-actions">
+              <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme">🌙</button>
+              ${me ? `<a class="app-login-btn user" href="${routes.profile}">${escapeHtml(me.name.split(' ')[0])}</a><button class="btn ghost sm" id="logoutBtn" type="button">Logout</button>` : `<a class="app-login-btn" href="${routes.login}">LOGIN</a>`}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     const themeBtn = host.querySelector('[data-theme-toggle]');
     if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
     const logoutBtn = document.getElementById('logoutBtn');
@@ -355,9 +376,9 @@
     }
 
     if (seriesHost) {
-      seriesHost.innerHTML = data.series.slice(0, 4).map((series) => `
-        <article class="home-series-card">
-          <div class="home-series-emoji">${series.badge === 'Current Affairs' ? '📰' : series.badge === 'Premium' ? '🌍' : series.badge === 'High accuracy' ? '🧮' : '📖'}</div>
+      seriesHost.innerHTML = data.series.slice(0, 4).map((series, index) => `
+        <article class="home-series-card tone-${index + 1}">
+          <div class="home-series-emoji">${series.badge === 'Current Affairs' ? '🌍' : series.badge === 'Premium' ? '🌍' : series.badge === 'High accuracy' ? '🔢' : '📖'}</div>
           <small>${escapeHtml(series.badge)}</small>
           <h3>${escapeHtml(series.title)}</h3>
           <p>${escapeHtml(series.description)}</p>
