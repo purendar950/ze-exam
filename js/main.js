@@ -316,15 +316,24 @@
     });
   }
 
-  function attachNavCards(scope = document) {
-    scope.querySelectorAll('[data-href]').forEach((card) => {
-      card.setAttribute('role', 'link');
-      if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
-      const open = () => { location.href = card.dataset.href; };
+  function enhanceClickableAnchors(scope = document) {
+    scope.querySelectorAll('a.clickable-card[href]').forEach((card) => {
+      if (card.dataset.boundClick === '1') return;
+      card.dataset.boundClick = '1';
+      const open = () => {
+        const href = card.getAttribute('href');
+        if (href) window.location.href = href;
+      };
       card.addEventListener('click', (event) => {
-        if (event.target.closest('a, button, input, select, textarea, label')) return;
+        if (event.target.closest('button, input, select, textarea, label')) return;
+        event.preventDefault();
         open();
       });
+      card.addEventListener('touchend', (event) => {
+        if (event.target.closest('button, input, select, textarea, label')) return;
+        event.preventDefault();
+        open();
+      }, { passive: false });
       card.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
@@ -389,7 +398,7 @@
     if (exploreHost) {
       const featured = ['cgl', 'chsl', 'cpo', 'steno', 'mts', 'up-exams'];
       exploreHost.innerHTML = featured.map(homeExamCard).join('');
-      attachNavCards(exploreHost);
+      enhanceClickableAnchors(exploreHost);
     }
 
     if (seriesHost) {
@@ -409,7 +418,7 @@
     const host = document.getElementById('examsGrid');
     if (!host) return;
     host.innerHTML = (data.departments || []).map(departmentCard).join('');
-    attachNavCards(host);
+    enhanceClickableAnchors(host);
   }
 
   function renderDepartmentPage() {
@@ -440,7 +449,7 @@
         </a>
       `;
     }).join('');
-    attachNavCards(grid);
+    enhanceClickableAnchors(grid);
   }
 
   function renderExamList(exam) {
