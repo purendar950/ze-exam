@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Tests | ExamZen</title>
+  <meta name="description" content="ExamZen mock test platform MVP.">
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="live" data-base="../">
+  <div id="siteHeader"></div>
+  
+<main>
+  <section class="page-hero"><div class="container"><div class="card"><span class="tag">Live test center</span><h1>Live Tests</h1><p class="muted">Scheduled free and premium tests will appear here.</p></div></div></section>
+  <section class="section"><div class="container" id="liveHost"></div></section>
+</main>
+
+  <div id="siteFooter"></div>
+  <script src="../js/store.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('../sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>

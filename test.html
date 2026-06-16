@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mock Test | ExamZen</title>
+  <meta name="description" content="ExamZen mock test platform MVP.">
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body data-page="test" data-base="./">
+  <div id="siteHeader"></div>
+  <main class="test-page-main">
+    <div id="testHost"></div>
+  </main>
+  <div id="siteFooter"></div>
+  <script src="./js/store.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/test-engine.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>

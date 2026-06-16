@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Plans | ExamZen</title>
+  <meta name="description" content="ExamZen mock test platform MVP.">
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body data-page="pricing" data-base="./">
+  <div id="siteHeader"></div>
+  
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="card">
+        <span class="tag warning">Best value</span>
+        <h1>Annual Membership</h1>
+        <p class="muted">Unlock premium grand mocks, saved access, partner discounts, and future analytics upgrades.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid cols-2">
+      <article class="card plan-card">
+        <h2>₹124 <span class="muted" style="font-size:1rem;">/ year</span></h2>
+        <p class="muted">Inclusive of all taxes. Use a partner coupon to reduce the price instantly.</p>
+        <ul class="list">
+          <li><span>1 year validity</span><strong>Included</strong></li>
+          <li><span>Secure activation</span><strong>Included</strong></li>
+          <li><span>Unlimited reattempts</span><strong>Premium</strong></li>
+          <li><span>Detailed analytics</span><strong>Premium</strong></li>
+        </ul>
+        <div class="hero-actions">
+          <button class="btn primary" id="buyPremiumBtn" type="button">Buy Premium Now</button>
+          <a class="btn secondary" href="./apply-coupon.html">Apply Coupon</a>
+        </div>
+      </article>
+      <article class="card table-card">
+        <h2>Plan comparison</h2>
+        <table class="table">
+          <thead><tr><th>Features</th><th>Free</th><th>Premium</th></tr></thead>
+          <tbody>
+            <tr><td>Daily live tests</td><td>Limited</td><td>Priority</td></tr>
+            <tr><td>Demo mock tests</td><td>Yes</td><td>Yes</td></tr>
+            <tr><td>All exam mocks</td><td>Partial</td><td>Yes</td></tr>
+            <tr><td>Performance analysis</td><td>Basic</td><td>Advanced</td></tr>
+            <tr><td>Unlimited reattempt mode</td><td>No</td><td>Yes</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header"><div><h2>Common Questions</h2><p>Answers for the most common pricing questions.</p></div></div>
+      <div id="faqList" class="grid cols-2"></div>
+    </div>
+  </section>
+</main>
+
+  <div id="siteFooter"></div>
+  <script src="./js/store.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>

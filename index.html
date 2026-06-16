@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExamZen | Free Mock Tests</title>
+  <meta name="description" content="Free SSC, Railway, Bank and State exam mock tests on ExamZen.">
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body data-page="home" data-base="./">
+  <div id="siteHeader"></div>
+  <main class="home-app-shell">
+    <section class="home-hero-wrap">
+      <div class="container">
+        <div class="home-hero-card">
+          <div class="home-hero-content">
+            <div class="home-eyebrow">WELCOME, ASPIRANT 👋</div>
+            <h1>Free SSC Mock Tests<br>Based on 2025 Pattern</h1>
+            <p>PYQ · Sectional · Topic-wise · Full Mocks</p>
+            <div class="home-chip-row">
+              <a href="./exams/index.html" class="home-chip">📚 Exams</a>
+              <a href="./live-test/index.html" class="home-chip">🔴 Live <span>FREE</span></a>
+              <a href="./profile/index.html" class="home-chip">👤 Profile</a>
+              <a href="https://t.me/" target="_blank" rel="noreferrer" class="home-chip">✈ Telegram</a>
+            </div>
+          </div>
+          <div class="home-hero-glow"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-ribbon-wrap">
+      <div class="container">
+        <div class="home-ribbon">
+          <div>🎯 500+ Free Mock Tests → Practice Now!</div>
+          <a href="./exams/index.html">Explore</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact-top">
+      <div class="container">
+        <div id="homeStatGrid" class="home-stat-grid"></div>
+      </div>
+    </section>
+
+    <section class="section compact-top">
+      <div class="container">
+        <div id="homeLiveCard"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="home-section-head">
+          <h2>🎯 Explore Exams</h2>
+          <a href="./exams/index.html">View All →</a>
+        </div>
+        <div id="homeExploreGrid" class="home-exam-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="home-section-head">
+          <h2>⭐ Important Series</h2>
+          <a href="./series/index.html">View All →</a>
+        </div>
+        <div id="homeSeriesRow" class="home-series-grid"></div>
+      </div>
+    </section>
+
+    <section class="section telegram-section">
+      <div class="container">
+        <div class="home-telegram-bar">
+          <div>
+            <strong>✈ Join Our Telegram Channel</strong>
+            <span>Free PDFs, Mocks & Daily Updates</span>
+          </div>
+          <a href="https://t.me/" target="_blank" rel="noreferrer">JOIN</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="siteFooter"></div>
+  <script src="./js/store.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>

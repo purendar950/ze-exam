@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | ExamZen</title>
+  <meta name="description" content="ExamZen mock test platform MVP.">
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body data-page="generic" data-base="./">
+  <div id="siteHeader"></div>
+  
+<main>
+  <section class="page-hero"><div class="container"><div class="card"><h1>About ExamZen</h1><p class="muted">ExamZen is a clean and modern exam practice platform built for mock tests, premium activations, and mobile-first preparation.</p></div></div></section>
+  <section class="section"><div class="container grid cols-2"><article class="card info-card"><h2>Our mission</h2><p class="muted">Make mock practice simple, fast, and conversion-ready for students preparing for competitive exams.</p></article><article class="card info-card"><h2>What this MVP includes</h2><p class="muted">Homepage, exam hubs, login, local user system, premium flow, saved tests, admin page, partner page, and a full working test engine.</p></article></div></section>
+</main>
+
+  <div id="siteFooter"></div>
+  <script src="./js/store.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>

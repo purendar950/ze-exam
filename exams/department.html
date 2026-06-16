@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department | ExamZen</title>
+  <meta name="description" content="Department-wise exam listing on ExamZen.">
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="department" data-base="../">
+  <div id="siteHeader"></div>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div id="departmentHero" class="card page-hero-card"></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="home-section-head">
+          <h2>Exams Conducted by this Department</h2>
+          <a href="./index.html">Back to Departments →</a>
+        </div>
+        <div id="departmentExamGrid" class="home-exam-grid"></div>
+      </div>
+    </section>
+  </main>
+  <div id="siteFooter"></div>
+  <script src="../js/store.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('../sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>

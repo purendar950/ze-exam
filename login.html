@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | ExamZen</title>
+  <meta name="description" content="ExamZen mock test platform MVP.">
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body data-page="login" data-base="./">
+  <div id="siteHeader"></div>
+  
+<main>
+  <section class="page-hero">
+    <div class="container auth-wrap">
+      <article class="card auth-shell">
+        <div class="tag">ExamZen account</div>
+        <h2>Welcome back</h2>
+        <p class="muted">Please enter your credentials.</p>
+        <div class="auth-tabs">
+          <button class="btn ghost sm" type="button" data-auth-tab="login">Login</button>
+          <button class="btn ghost sm" type="button" data-auth-tab="signup">Create Account</button>
+          <button class="btn ghost sm" type="button" data-auth-tab="reset">Reset Password</button>
+        </div>
+        <form id="loginForm" class="auth-form form-grid" data-auth-form="login">
+          <div class="field"><label>Gmail or Username</label><input class="input" name="identifier" required></div>
+          <div class="field"><label>Password</label><input class="input" type="password" name="password" required></div>
+          <button class="btn primary" type="submit">Sign In</button>
+        </form>
+        <form id="signupForm" class="auth-form form-grid" data-auth-form="signup">
+          <div class="field"><label>Full Name</label><input class="input" name="name" required></div>
+          <div class="field"><label>Unique Username</label><input class="input" name="username" required></div>
+          <div class="field"><label>Gmail Address</label><input class="input" type="email" name="email" required></div>
+          <div class="field"><label>Create Password</label><input class="input" type="password" name="password" required></div>
+          <button class="btn primary" type="submit">Verify & Register</button>
+        </form>
+        <form id="resetForm" class="auth-form form-grid" data-auth-form="reset">
+          <div class="field"><label>Gmail Address</label><input class="input" type="email" name="email" required></div>
+          <div class="field"><label>New Password</label><input class="input" type="password" name="password" required></div>
+          <button class="btn secondary" type="submit">Update Password</button>
+        </form>
+      </article>
+      <article class="card auth-shell">
+        <span class="tag success">Demo mode ready</span>
+        <h2>Use these demo accounts</h2>
+        <ul class="list">
+          <li><span>Student account</span><strong>demo / demo123</strong></li>
+          <li><span>Admin account</span><strong>admin / admin123</strong></li>
+          <li><span>Backend mode</span><strong>Supabase-ready fallback</strong></li>
+        </ul>
+        <div class="notice warning" style="margin-top:16px;">To connect real auth later, fill your Supabase URL and anon key in <strong>js/auth.js</strong> or replace the placeholder config object.</div>
+      </article>
+    </div>
+  </section>
+</main>
+
+  <div id="siteFooter"></div>
+  <script src="./js/store.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>

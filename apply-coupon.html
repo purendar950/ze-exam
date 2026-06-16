@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Coupon | ExamZen</title>
+  <meta name="description" content="ExamZen mock test platform MVP.">
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body data-page="coupon" data-base="./">
+  <div id="siteHeader"></div>
+  
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="card">
+        <span class="tag">Partner Coupon</span>
+        <h1>Activate Premium with a Coupon</h1>
+        <p class="muted">Working MVP checkout flow. Login first, apply a coupon, then activate premium locally.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container auth-wrap">
+      <article class="card info-card">
+        <h2>Apply Code</h2>
+        <form id="couponForm" class="form-grid">
+          <div class="field">
+            <label for="coupon">Coupon code</label>
+            <input class="input" id="coupon" name="code" placeholder="EXAMZEN25 or PARTNER99">
+            <div class="help">Sample working codes: EXAMZEN25, PARTNER99, WELCOME10</div>
+          </div>
+          <button class="btn primary" type="submit">Apply Coupon</button>
+        </form>
+      </article>
+      <article class="card info-card">
+        <h2>Checkout Summary</h2>
+        <div id="couponResult"></div>
+        <div class="hero-actions">
+          <button class="btn success" id="checkoutBtn" type="button">Confirm & Activate</button>
+          <a class="btn ghost" href="./pricing.html">Back to Plan</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+  <div id="siteFooter"></div>
+  <script src="./js/store.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>
