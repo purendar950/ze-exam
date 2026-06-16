@@ -338,25 +338,23 @@
     const exam = getExamMeta(examId);
     if (!exam) return '';
     return `
-      <article class="home-exam-card clickable-card" data-href="${examHubUrl(examId)}">
+      <a class="home-exam-card clickable-card" href="${examHubUrl(examId)}">
         <div class="home-exam-icon">${escapeHtml(exam.icon || '📚')}</div>
         <h3>${escapeHtml(exam.title)}</h3>
         <p>${escapeHtml(exam.subtitle)}</p>
         <span>${escapeHtml(exam.mockCount)}</span>
-        <a href="${examHubUrl(examId)}">Open</a>
-      </article>
+      </a>
     `;
   }
 
   function departmentCard(dept) {
     return `
-      <article class="home-exam-card department-card-large clickable-card" data-href="${departmentUrl(dept.id)}">
+      <a class="home-exam-card department-card-large clickable-card" href="${departmentUrl(dept.id)}">
         <div class="home-exam-icon">${escapeHtml(dept.icon || '📚')}</div>
         <h3>${escapeHtml(dept.title)}</h3>
         <p>${escapeHtml(dept.subtitle)}</p>
         <span>${escapeHtml(dept.mockCount)}</span>
-        <a href="${departmentUrl(dept.id)}">Explore</a>
-      </article>
+      </a>
     `;
   }
 
@@ -434,13 +432,12 @@
       const exam = getExamMeta(examId);
       if (!exam) return '';
       return `
-        <article class="home-exam-card department-exam-card clickable-card" data-href="${examHubUrl(examId)}">
+        <a class="home-exam-card department-exam-card clickable-card" href="${examHubUrl(examId)}">
           <div class="home-exam-icon">${escapeHtml(exam.icon || '📚')}</div>
           <h3>${escapeHtml(exam.title)}</h3>
           <p>${escapeHtml(exam.subtitle)}</p>
           <span>${escapeHtml(exam.mockCount)}</span>
-          <a href="${examHubUrl(examId)}">Open Series</a>
-        </article>
+        </a>
       `;
     }).join('');
     attachNavCards(grid);

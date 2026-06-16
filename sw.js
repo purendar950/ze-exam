@@ -1,4 +1,4 @@
-const CACHE = 'examzen-v2-20260616c';
+const CACHE = 'examzen-v2-20260616d';
 const ASSETS = [
   './',
   './index.html',
@@ -15,13 +15,13 @@ const ASSETS = [
   './live-test/index.html',
   './profile/index.html',
   './saved/index.html',
-  './assets/styles.css?v=20260616c',
+  './assets/styles.css?v=20260616d',
   './assets/logo.svg',
-  './js/store.js?v=20260616c',
-  './js/data.js?v=20260616c',
-  './js/auth.js?v=20260616c',
-  './js/main.js?v=20260616c',
-  './js/test-engine.js?v=20260616c'
+  './js/store.js?v=20260616d',
+  './js/data.js?v=20260616d',
+  './js/auth.js?v=20260616d',
+  './js/main.js?v=20260616d',
+  './js/test-engine.js?v=20260616d'
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)));
